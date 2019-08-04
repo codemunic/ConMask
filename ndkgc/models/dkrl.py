@@ -856,7 +856,7 @@ class DKRL(object):
 def main(_):
     import os
 
-    DATA_DIR = './data/fb15k/'
+    DATA_DIR = './data/dbpedia50/' #to use dbpedia50 dataset with DKRL model
     model = DKRL(
         entity_file=os.path.join(DATA_DIR, 'entities.txt'),
         relation_file=os.path.join(DATA_DIR, 'relations.txt'),
