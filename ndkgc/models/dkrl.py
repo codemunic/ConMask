@@ -861,12 +861,12 @@ def main(_):
         entity_file=os.path.join(DATA_DIR, 'entities.txt'),
         relation_file=os.path.join(DATA_DIR, 'relations.txt'),
         vocab_file=os.path.join(DATA_DIR, 'vocab.txt'),
-        pretrain_vocab_file=os.path.join(DATA_DIR, 'glove.6B.100d.txt'),
+        pretrain_vocab_file=os.path.join(DATA_DIR, 'embed.txt'),
         content_file=os.path.join(DATA_DIR, 'descriptions.txt'),
         train_file=os.path.join(DATA_DIR, 'train.txt'),
         valid_file=os.path.join(DATA_DIR, 'valid.txt'),
         test_file=os.path.join(DATA_DIR, 'test.txt'),
-        all_triples_file=os.path.join(DATA_DIR, 'all_triples.txt')
+       # all_triples_file=os.path.join(DATA_DIR, 'all_triples.txt')
     )
 
     config = tf.ConfigProto()
