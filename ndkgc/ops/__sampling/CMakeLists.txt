@@ -17,6 +17,8 @@ message(STATUS "TensorFlow include dir: " ${TF_FILES})
 
 set(SOURCE_FILES pairwise_sampler.cpp)
 
+set(LIBRARY_OUTPUT_PATH  ${CMAKE_SOURCE_DIR}) . # As library couldn't be found
+
 include_directories(${TF_FILES})
 
 add_library(sampling SHARED ${SOURCE_FILES})
