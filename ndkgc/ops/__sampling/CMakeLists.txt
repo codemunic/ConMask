@@ -1,4 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
+# if libraries are compiled with different ABI, then set the matching version here
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
+
 project(target_sampling)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -8,13 +11,14 @@ MESSAGE(STATUS "OS Type: " ${OS})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -shared -fPIC -O2")
 
-# if libraries are compiled with different ABI, then set the matching version here
-add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
+
 
 
 if (${OS} STREQUAL "Darwin")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -undefined dynamic_lookup")
 endif ()
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -undefined dynamic_lookup")
 
 EXEC_PROGRAM("python3 -c 'import tensorflow as tf; print(tf.sysconfig.get_include())' 2>/dev/null | grep -v 'I'" OUTPUT_VARIABLE TF_FILES ERROR_VARIABLE TF_ERRORS)
 message(STATUS "TensorFlow include dir: " ${TF_FILES})
