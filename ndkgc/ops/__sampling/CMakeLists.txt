@@ -18,7 +18,6 @@ if (${OS} STREQUAL "Darwin")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -undefined dynamic_lookup")
 endif ()
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -undefined dynamic_lookup")
 
 EXEC_PROGRAM("python3 -c 'import tensorflow as tf; print(tf.sysconfig.get_include())' 2>/dev/null | grep -v 'I'" OUTPUT_VARIABLE TF_FILES ERROR_VARIABLE TF_ERRORS)
 message(STATUS "TensorFlow include dir: " ${TF_FILES})
