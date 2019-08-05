@@ -9,7 +9,7 @@ MESSAGE(STATUS "OS Type: " ${OS})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -shared -fPIC -O2")
 
 # if libraries are compiled with different ABI, then set the matching version here
-add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
+add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
 
 
 if (${OS} STREQUAL "Darwin")
