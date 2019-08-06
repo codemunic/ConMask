@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 # if libraries are compiled with different ABI, then set the matching version here
 if(CONAN_LIBCXX STREQUAL "libstdc++11")
-    add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
-elseif(CONAN_LIBCXX STREQUAL "libstdc++")
     add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
+elseif(CONAN_LIBCXX STREQUAL "libstdc++")
+    add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
 endif()
 
 macro(use_cxx11)
