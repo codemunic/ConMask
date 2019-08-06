@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.1)
 # if libraries are compiled with different ABI, then set the matching version here
 
 
