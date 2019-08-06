@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.1)
 # if libraries are compiled with different ABI, then set the matching version here
 
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 --stdlib=libc++")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libstdc++")
 
 project(target_sampling)
 
