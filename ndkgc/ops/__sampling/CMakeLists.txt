@@ -23,8 +23,6 @@ project(target_sampling)
 EXEC_PROGRAM(uname OUTPUT_VARIABLE OS)
 MESSAGE(STATUS "OS Type: " ${OS})
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -shared -fPIC -O2")
-
 
 
 
