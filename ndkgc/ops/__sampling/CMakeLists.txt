@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 # if libraries are compiled with different ABI, then set the matching version here
-
+project(target_sampling)
 
 set(GCC_COVERAGE_LINK_FLAGS "python3 -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_link_flags()))'")
 
@@ -12,7 +12,7 @@ add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-project(target_sampling)
+
 
 EXEC_PROGRAM(uname OUTPUT_VARIABLE OS)
 MESSAGE(STATUS "OS Type: " ${OS})
