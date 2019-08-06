@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.1)
 # if libraries are compiled with different ABI, then set the matching version here
 if(CONAN_LIBCXX STREQUAL "libstdc++11")
     add_definitions(-D_GLIBCXX_USE_CXX11_ABI=1)
@@ -17,6 +17,8 @@ macro(use_cxx11)
 endmacro(use_cxx11)
 
 use_cxx11()
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 project(target_sampling)
 
