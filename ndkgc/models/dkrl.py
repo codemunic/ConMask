@@ -871,7 +871,7 @@ def main(_):
         train_file=os.path.join(DATA_DIR, 'train.txt'),
         valid_file=os.path.join(DATA_DIR, 'valid.txt'),
         test_file=os.path.join(DATA_DIR, 'test.txt'),
-       # all_triples_file=os.path.join(DATA_DIR, 'all_triples.txt')
+        all_triples_file=os.path.join(DATA_DIR, 'train.txt')
     )
 
     config = tf.ConfigProto()
