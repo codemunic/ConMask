@@ -9,7 +9,6 @@ import tensorflow.contrib.training as training
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-#print('Before importing get_lookup_table')
 
 from ndkgc.ops import get_lookup_table, corrupt_single_relationship, corrupt_single_entity, content_lookup, \
     multiple_content_lookup, normalized_lookup, avg_grads
