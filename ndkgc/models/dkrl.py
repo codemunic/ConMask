@@ -13,7 +13,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from ndkgc.ops import get_lookup_table, corrupt_single_relationship, corrupt_single_entity, content_lookup, \
     multiple_content_lookup, normalized_lookup, avg_grads
 
-print('Before utils file')
 
 from ndkgc.utils import count_line, valid_vocab_file, load_list, \
     load_triples, load_pretrained_embedding, load_content
