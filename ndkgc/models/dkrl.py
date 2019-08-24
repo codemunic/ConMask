@@ -33,7 +33,7 @@ class DKRL(object):
                  train_file,
                  valid_file,
                  test_file,
-                 all_triples_file,
+                 #all_triples_file,
                  oov_buckets=10,
                  learning_rate=0.001,
                  margin=1.0,
@@ -53,9 +53,9 @@ class DKRL(object):
         self.train_file = train_file
         self.valid_file = valid_file
         self.test_file = test_file
-        self.all_triples_file = all_triples_file
+        #self.all_triples_file = all_triples_file
 
-        valid_vocab_file(self.vocab_file)
+        #valid_vocab_file(self.vocab_file)
 
         self.oov_buckets = oov_buckets
 
