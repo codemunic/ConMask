@@ -30,7 +30,7 @@ def get_lookup_table_from_tensor(tensor, oov_buckets, device='/cpu:0', name='loo
 
 def get_lookup_table(element_file_path, oov_buckets, size=None, device='/cpu:0', name='lookup_table'):
     with tf.device(device):
-        return lookup.string_to_index_table_from_file(vocabulary_file=element_file_path,
+        return lookup.index_table_from_file(vocabulary_file=element_file_path,
                                                       num_oov_buckets=oov_buckets,
                                                       vocab_size=size,
                                                       default_value=-1,  # -1 is always the padding value
