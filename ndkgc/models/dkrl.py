@@ -32,7 +32,7 @@ class DKRL(object):
                  train_file,
                  valid_file,
                  test_file,
-                 #all_triples_file,
+                 all_triples_file,
                  oov_buckets=10,
                  learning_rate=0.001,
                  margin=1.0,
@@ -52,7 +52,7 @@ class DKRL(object):
         self.train_file = train_file
         self.valid_file = valid_file
         self.test_file = test_file
-        #self.all_triples_file = all_triples_file
+        self.all_triples_file = all_triples_file
 
         #valid_vocab_file(self.vocab_file)
 
@@ -869,7 +869,7 @@ def main(_):
         train_file=os.path.join(DATA_DIR, 'train.txt'),
         valid_file=os.path.join(DATA_DIR, 'valid.txt'),
         test_file=os.path.join(DATA_DIR, 'test.txt'),
-        #all_triples_file=os.path.join(DATA_DIR, 'train.txt')
+        all_triples_file=os.path.join(DATA_DIR, 'train.txt')
     )
 
     config = tf.ConfigProto()
