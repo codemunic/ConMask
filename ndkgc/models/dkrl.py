@@ -920,7 +920,7 @@ def main(_):
                     else:
                         sess.run(train_op)
             except tf.errors.OutOfRangeError:
-                #print("training done")
+                print("training done")
             finally:
                 coord.request_stop()
             coord.join(threads)
