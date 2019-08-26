@@ -914,13 +914,13 @@ def main(_):
             coord = tf.train.Coordinator()
             threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 
-#            try:
- #               saver.restore(sess=sess, save_path=tf.train.latest_checkpoint('./checkpoint/'))
-  #          except tf.errors.NotFoundError:
-   #             tf.logging.error("You may have changed your model and there "
-    #                             "are new variables that can not be load from previous snapshot. "
-     #                            "We will keep running but be aware that parts of your model are"
-      #                           " RANDOM MATRICES!")
+            try:
+                saver.restore(sess=sess, save_path=tf.train.latest_checkpoint('./drive/My Drive/BTP/checkpoint/'))
+            except tf.errors.NotFoundError:
+                tf.logging.error("You may have changed your model and there "
+                                 "are new variables that can not be load from previous snapshot. "
+                                 "We will keep running but be aware that parts of your model are"
+                                 " RANDOM MATRICES!")
 
             try:
                 cnt = 0
@@ -930,10 +930,11 @@ def main(_):
                     
                     if cnt % 10 == 0:
                         _, loss, global_step = sess.run([train_op, loss_op, model.global_step])
-                        print("GSTEP:_%d_LOSS:_%.4f" % (global_step, loss), end='\r')
+                        print("GSTEP:_%d_LOSS:_%.4f" % (global_step, loss))
+                        print('Loss printed')
                     else:
                         sess.run(train_op)
-                        saver.save(sess, "./checkpoint/model.ckpt", global_step=model.global_step)
+                        saver.save(sess, "./drive/My Drive/BTP/checkpoint/model.ckpt", global_step=model.global_step)
                         tf.logging.info("Model saved")
                         
             except tf.errors.OutOfRangeError:
@@ -942,7 +943,7 @@ def main(_):
                 coord.request_stop()
             coord.join(threads)
 
-            saver.save(sess, "./checkpoint/model.ckpt", global_step=model.global_step)
+            saver.save(sess, "./drive/My Drive/BTP/checkpoint/model.ckpt", global_step=model.global_step)
             tf.logging.info("Model saved")
 
     def eval():
@@ -960,7 +961,7 @@ def main(_):
             threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 
             try:
-                saver.restore(sess=sess, save_path=tf.train.latest_checkpoint('./checkpoint/'))
+                saver.restore(sess=sess, save_path=tf.train.latest_checkpoint('./drive/My Drive/BTP/checkpoint/'))
             except tf.errors.NotFoundError:
                 tf.logging.error("You may have changed your model and there "
                                  "are new variables that can not be load from previous snapshot. "
