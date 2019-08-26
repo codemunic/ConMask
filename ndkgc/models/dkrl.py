@@ -472,7 +472,7 @@ class DKRL(object):
                 input_queue = tf.train.batch(batch_input_tensors,
                                              batch_size=batch_size * 4,
                                              num_threads=4,
-                                             capacity=min(batch_size * 40, self.train_matrix.get_shape()[0]),
+                                             capacity=min(batch_size * 40, self.train_matrix.get_shape().as_list()[0]),
                                              enqueue_many=False,
                                              shapes=[[3], [3], [3],
                                                      [None], (),
