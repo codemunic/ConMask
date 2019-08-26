@@ -212,7 +212,7 @@ class DKRL(object):
         
         print('word Embedding is matrix with shape: ', self.word_embedding.shape)
         
-        print('Before loading content_matrix, shape is:, content_matrix.get_shape())
+        print('Before loading content_matrix, shape is:', content_matrix.get_shape())
               
         self.content_matrix.load(load_content(self.content_file, entity_dict), sess)
 
