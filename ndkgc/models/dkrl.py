@@ -167,8 +167,13 @@ class DKRL(object):
         train_triples = load_triples(self.train_file,
                                      entity_dict,
                                      relation_dict)
+        
+        print('Train Triples length: ', len(train_triples))
+        
         if not self.__initialized:
             self.__initialize_model()
+        else:
+            print('Model already Initialized...')
 
         self.train_matrix.load(np.asarray(train_triples), sess)
         del train_triples
@@ -190,9 +195,12 @@ class DKRL(object):
         all_triples = load_triples(self.all_triples_file,
                                    entity_dict,
                                    relation_dict)
+      
 
         self.triple_matrix.load(np.asarray(all_triples), sess)
         del all_triples
+        
+        Print('Triple Matrix shape: ', self.triple_matrix.shape)
 
         vocab = load_list(self.vocab_file)
 
@@ -201,7 +209,11 @@ class DKRL(object):
                                                            self.word_embedding_size,
                                                            self.oov_buckets), sess)
         del vocab
-
+        
+        print('word Embedding is matrix with shape: ', self.word_embedding.shape)
+        
+        print('Before loading content_matrix, shape is:, content_matrix.get_shape())
+              
         self.content_matrix.load(load_content(self.content_file, entity_dict), sess)
 
     def dist(self, h, r, t):
