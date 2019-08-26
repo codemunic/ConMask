@@ -387,6 +387,10 @@ class DKRL(object):
                     tf.random_shuffle(self.train_matrix, name='shuffled_input_triples'),
                     num_epochs=num_epochs,
                     name='train_triples_limited')
+                
+                print('Train Matrix shape: ', self.train_matrix.get_shape())
+                print('input_triples_shape: ', input_triples.get_shape())
+                
                 single_triple = tf.train.shuffle_batch([input_triples],
                                                        batch_size=1,
                                                        capacity=min(batch_size * 40, self.train_matrix.get_shape()[0]),
