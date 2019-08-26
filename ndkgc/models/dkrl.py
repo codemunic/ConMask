@@ -915,7 +915,7 @@ def main(_):
             threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 
             try:
-                saver.restore(sess=sess, save_path=tf.train.latest_checkpoint('./drive/My Drive/BTP/checkpoint/'))
+                saver.restore(sess=sess, save_path=tf.train.latest_checkpoint('../drive/My Drive/BTP/checkpoint/'))
             except tf.errors.NotFoundError:
                 tf.logging.error("You may have changed your model and there "
                                  "are new variables that can not be load from previous snapshot. "
@@ -934,7 +934,7 @@ def main(_):
                         print('Loss printed')
                     else:
                         sess.run(train_op)
-                        saver.save(sess, "./drive/My Drive/BTP/checkpoint/model.ckpt", global_step=model.global_step)
+                        saver.save(sess, "../drive/My Drive/BTP/checkpoint/model.ckpt", global_step=model.global_step)
                         tf.logging.info("Model saved")
                         
             except tf.errors.OutOfRangeError:
@@ -943,7 +943,7 @@ def main(_):
                 coord.request_stop()
             coord.join(threads)
 
-            saver.save(sess, "./drive/My Drive/BTP/checkpoint/model.ckpt", global_step=model.global_step)
+            saver.save(sess, "../drive/My Drive/BTP/checkpoint/model.ckpt", global_step=model.global_step)
             tf.logging.info("Model saved")
 
     def eval():
@@ -961,7 +961,7 @@ def main(_):
             threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 
             try:
-                saver.restore(sess=sess, save_path=tf.train.latest_checkpoint('./drive/My Drive/BTP/checkpoint/'))
+                saver.restore(sess=sess, save_path=tf.train.latest_checkpoint('../drive/My Drive/BTP/checkpoint/'))
             except tf.errors.NotFoundError:
                 tf.logging.error("You may have changed your model and there "
                                  "are new variables that can not be load from previous snapshot. "
