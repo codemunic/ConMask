@@ -916,11 +916,11 @@ def main(_):
                     cnt += 1
                     if cnt % 10 == 0:
                         _, loss, global_step = sess.run([train_op, loss_op, model.global_step])
-                        print("GSTEP:_%d_LOSS:_%.4f" % (global_step, loss), end='\r')
+                        #print("GSTEP:_%d_LOSS:_%.4f" % (global_step, loss), end='\r')
                     else:
                         sess.run(train_op)
             except tf.errors.OutOfRangeError:
-                print("training done")
+                #print("training done")
             finally:
                 coord.request_stop()
             coord.join(threads)
