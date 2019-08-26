@@ -112,7 +112,7 @@ def load_content(content_file_path, entities, max_content_len=256):
         content.append(d[i])
         content_len.append(l[i])
     tf.logging.info("Load %d content data from %s" % (len(d), content_file_path))
-    return content, content_len
+    return content #, content_len
 
 
 def load_vocab_file(vocab_file_path):
