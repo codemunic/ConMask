@@ -1020,7 +1020,7 @@ def main(_):
             coord.join(threads)
 
     while True:
-        train()
+        #train()
         eval()
 
 
