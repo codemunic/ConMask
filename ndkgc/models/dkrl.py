@@ -926,7 +926,11 @@ def main(_):
                 cnt = 0
                 while not coord.should_stop():
                     cnt += 1
-                    print('Training for cnt: ', cnt)
+                    if cnt%5 == 0:
+                        print('Training for cnt: ', cnt)
+                        
+                    if cnt%20 == 0:
+                        eval()
                     
                     if cnt % 10 == 0:
                         _, loss, global_step = sess.run([train_op, loss_op, model.global_step])
@@ -1020,7 +1024,7 @@ def main(_):
             coord.join(threads)
 
     while True:
-        #train()
+        train()
         eval()
 
 
