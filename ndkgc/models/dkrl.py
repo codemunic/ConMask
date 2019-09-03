@@ -589,6 +589,8 @@ class DKRL(object):
             eval_matrix = self.test_matrix
         else:
             raise ValueError("No %s set for evaluation!")
+            
+        print('Eval Matrix: ', eval_type)
 
         with tf.variable_scope('eval_precompute'):
             # Create variables to store precomputed CNN results for head entities and tail entities
@@ -636,6 +638,7 @@ class DKRL(object):
                                      enqueue_many=True,
                                      allow_smaller_final_batch=True,
                                      name='input_batch')
+            print('triples in Eval shape: ', triples.get_shape())
 
         with tf.name_scope('eval'):
             # First generate convolution embedding for
@@ -647,6 +650,7 @@ class DKRL(object):
             _tail_conv = tf.expand_dims(tail_conv_embed, axis=0) / float(self.feature_map_size)
             _ent_embed = tf.expand_dims(self.entity_embedding, axis=0) / float(self.word_embedding_size)
 
+            print('_head_conv shape in eval: ', _head_conv.get_shape())
             # three 1-D [batch_size] vectors
             heads, rels, tails = tf.unstack(triples, axis=1)
 
@@ -929,7 +933,7 @@ def main(_):
                     if cnt%5 == 0:
                         print('Training for cnt: ', cnt)
                         
-                    if cnt%10 == 0:
+                    if cnt%2 == 0:
                         print('Running Evaluation')
                         eval()
                     
