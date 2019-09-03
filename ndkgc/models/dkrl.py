@@ -929,13 +929,14 @@ def main(_):
                     if cnt%5 == 0:
                         print('Training for cnt: ', cnt)
                         
-                    if cnt%20 == 0:
+                    if cnt%10 == 0:
+                        print('Running Evaluation')
                         eval()
                     
                     if cnt % 10 == 0:
                         _, loss, global_step = sess.run([train_op, loss_op, model.global_step])
                         print("GSTEP:_%d_LOSS:_%.4f" % (global_step, loss))
-                        print('Loss printed')
+                        print('Training Loss printed')
                     else:
                         sess.run(train_op)
                         saver.save(sess, "../drive/My Drive/BTP/checkpoint/model.ckpt", global_step=model.global_step)
@@ -963,6 +964,8 @@ def main(_):
 
             coord = tf.train.Coordinator()
             threads = tf.train.start_queue_runners(sess=sess, coord=coord)
+            
+            print('Looking for checkpoint')
 
             try:
                 saver.restore(sess=sess, save_path=tf.train.latest_checkpoint('../drive/My Drive/BTP/checkpoint/'))
@@ -974,7 +977,8 @@ def main(_):
 
             # print("entity_embedding", sess.run(model.entity_embedding))
             # print("relation_embedding", sess.run(model.relation_embedding))
-
+            
+            print('Creating list for head_conv and tail_conv')
             try:
                 head_conv = list()
                 tail_conv = list()
