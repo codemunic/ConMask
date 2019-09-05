@@ -933,7 +933,7 @@ def main(_):
                     if cnt%5 == 0:
                         print('Training for cnt: ', cnt)
                         
-                    if cnt%2 == 0:
+                    if cnt%10 == 0:
                         print('Running Evaluation')
                         eval()
                     
@@ -1031,10 +1031,10 @@ def main(_):
                 print(json.dumps(js_str, sort_keys=True, indent=2))
             coord.join(threads)
             
-    eval()
-    #while True:
-        #train()
-        #eval()
+    
+    while True:
+        train()
+        eval()
 
 
 if __name__ == '__main__':
