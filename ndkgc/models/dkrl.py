@@ -1030,10 +1030,11 @@ def main(_):
                 js_str = json.loads(str(sess.run(metric_op)).replace("'", '"'))
                 print(json.dumps(js_str, sort_keys=True, indent=2))
             coord.join(threads)
-
-    while True:
-        train()
-        eval()
+            
+    eval()
+    #while True:
+        #train()
+        #eval()
 
 
 if __name__ == '__main__':
