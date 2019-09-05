@@ -930,8 +930,7 @@ def main(_):
                 cnt = 0
                 while not coord.should_stop():
                     cnt += 1
-                    if cnt%5 == 0:
-                        print('Training for cnt: ', cnt)
+                    print('Training for cnt: ', cnt)
                         
                     if cnt%10 == 0:
                         print('Running Evaluation')
